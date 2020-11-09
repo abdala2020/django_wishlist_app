@@ -7,14 +7,17 @@
 {% if visited %}
 <ul>
     {% for place in visited %}
-        <li>{{ place.name }}</li>
+        <li>
+            <!--add a link to place detail page-->  
+            <a href="{% url 'place_details' place_pk=place.pk %}">{{ place.name }}</a>
+        </li>
     {% endfor %}
 
 </ul>
 
 {% else %}
 
-<p>You have not visited any places yet.</p>
+    <p>You have not visited any places yet.</p>
 
 {% endif %}
 

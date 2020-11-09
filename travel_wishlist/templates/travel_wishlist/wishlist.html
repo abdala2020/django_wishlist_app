@@ -11,11 +11,14 @@
 {% for place in places %}
 
 <div class="wishlist-place">
-    <span class="place-name">{{ place.name }}</span>
+    <span id="place-name-{{ place.pk }}" class="place-name">
+        <!--add a link to place detail page-->
+        <a href="{% url 'place_details' place_pk=place.pk %}">{{ place.name }}</a>
+        </span>
     
     <form class="visited-form" method="POST" action="{% url 'place_was_visited' place.pk %}">
         {% csrf_token %}
-        <button>Visited!</button>
+        <button id="visited-button-{{ place.pk}}">Visited!</button>
     </form>
     
 </div>
